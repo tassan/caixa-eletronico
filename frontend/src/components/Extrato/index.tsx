@@ -13,14 +13,6 @@ interface Registro {
 }
 
 export default function Extrato() {
-    let [extrato, setExtrato] = useState([])
-
-    userEffect(() => {
-        fetch("/api/extrato")
-            .then((response) => response.json())
-            .then((data) => setExtrato(data))
-    }, [])
-
     return <Container>
         <Title>Extrato</Title>
         <Table>
@@ -37,8 +29,4 @@ export default function Extrato() {
             </TableBody>
         </Table> 
     </Container>
-}
-
-function userEffect(arg0: () => void, arg1: never[]) {
-    throw new Error("Function not implemented.");
 }
