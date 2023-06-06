@@ -1,7 +1,26 @@
+import { createServer } from "miragejs";
 import Registro from "./components/Registro";
 import { Container, Table, TableBody, TableHead, TableHeadCell, TableRow, Title } from "./styles";
+import { useState } from "react";
+
+interface Registro {
+    id: number;
+    data: string;
+    descricao: string;
+    categoria: string;
+    tipo: string;
+    valor: number;
+}
 
 export default function Extrato() {
+    let [extrato, setExtrato] = useState([])
+
+    userEffect(() => {
+        fetch("/api/extrato")
+            .then((response) => response.json())
+            .then((data) => setExtrato(data))
+    }, [])
+
     return <Container>
         <Title>Extrato</Title>
         <Table>
@@ -18,4 +37,8 @@ export default function Extrato() {
             </TableBody>
         </Table> 
     </Container>
+}
+
+function userEffect(arg0: () => void, arg1: never[]) {
+    throw new Error("Function not implemented.");
 }
