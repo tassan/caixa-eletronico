@@ -13,6 +13,8 @@ export const Title = styled.h1`
   color: #000;
   margin: 10px;
   font-family: 'VT323', monospace;
+  text-align: center;
+  text-transform: uppercase;
 `
 
 export const CommandsContainer = styled.div`
