@@ -2,6 +2,7 @@ import Depositar from "./components/Depositar"
 import Extrato from "./components/Extrato"
 import Sacar from "./components/Sacar"
 import Saldo from "./components/Saldo"
+import { mirageSetup } from "./mirage/setup"
 import { CommandsContainer, Container, Title } from "./styles"
 
 
