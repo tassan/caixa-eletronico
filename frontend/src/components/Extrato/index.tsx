@@ -1,18 +1,18 @@
 import { createServer } from "miragejs";
 import Registro from "./components/Registro";
 import { Container, Table, TableBody, TableHead, TableHeadCell, TableRow, Title } from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-interface Registro {
-    id: number;
-    data: string;
-    descricao: string;
-    categoria: string;
-    tipo: string;
-    valor: number;
+interface ExtratoProps {
+    extrato: Registro[],
+    setExtrato: React.Dispatch<React.SetStateAction<Registro[]>>
 }
 
-export default function Extrato() {
+export default function Extrato({extrato, setExtrato}: ExtratoProps) {
+
+    useEffect(() => {
+    }, [extrato])
+
     return <Container>
         <Title>Extrato</Title>
         <Table>
@@ -24,8 +24,9 @@ export default function Extrato() {
                 </TableRow>
             </TableHead>
             <TableBody>
-                <Registro data="10/09/2021" tipo="Depósito" valor="R$ 20,00" />
-                <Registro data="10/09/2021" tipo="Saque" valor="R$ 20,00" />
+                {extrato.map((registro, index) => 
+                    <Registro key={index} data={registro.data} tipo={registro.tipo} valor={registro.valor} />
+                )}
             </TableBody>
         </Table> 
     </Container>

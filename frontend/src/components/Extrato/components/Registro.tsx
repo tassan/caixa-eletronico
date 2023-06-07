@@ -3,7 +3,7 @@ import { TableBodyCell, TableRow } from "../styles";
 interface IRegistroProps {
     data: string;
     tipo: string;
-    valor: string;
+    valor: number;
 }
 
 
